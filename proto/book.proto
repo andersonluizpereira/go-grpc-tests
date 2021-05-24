@@ -1,0 +1,22 @@
+syntax = "proto3";
+package pb;
+option go_package = "../pb";
+
+message Book {
+string id=1;
+string description=2;
+string title=3;
+}
+
+message BookResultStream {
+string status = 1;
+  Book book = 2;
+}
+
+message Books {
+repeated Book book = 1;
+}
+
+service BookService {
+rpc AddBook (Book) returns (Book);
+}
